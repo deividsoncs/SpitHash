@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core" 
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>>DCALIXTO SPIT-HASH</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <f:view contentType="text/html" encoding="ISO-8859-1">
+            <p:growl id="growl" showDetail="true" autoUpdate="true" />
+            <h:form id="frmCorpo" style="width: 100%!important">
+                <center>
+                    <p:panel style="text-align: center!important;margin-top: 100px; max-width: 650px;min-height: 250px">
+                        <f:facet name="header">
+                            <p:outputLabel value="Spit MySQL Hash Password (HEX)" style="font-size: 25px!important;font-weight: bold"/>
+                            <a href="https://dcalixtoblog.wordpress.com" target="blank" style="color: red;font-size: 10px">(Source Code)</a>
+                        </f:facet>
+                        <br/>
+                        <p:outputLabel value="Entrada: " for="it_entrada" style='font-size: 18px!important;font-weight: bold'/>
+                        <br/>
+                        <p:inputText value="#{principalBean.valorEntrada}" id="it_entrada" style="width: 600px!important"/>
+                        <br/><br/>
+                        <!--                        <p:selectOneRadio>
+                                                    <f:selectItem itemLabel="MySQL (Password)" itemValue="1" itemDisabled="true"/>
+                                                    <f:selectItem itemLabel="SHA-1" itemValue="2"/>
+                                                </p:selectOneRadio>
+                                                <br/><br/>-->
+                        <p:commandButton value="Hash It!" action="#{principalBean.enviar()}" update="lb_saida"/>
+                        <br/><br/><br/>
+                        <p:outputLabel value="#{principalBean.valorSaida}" id="lb_saida"/>
+                        <!--<h:panelGrid style="width:100%!important;text-align: right">
+                            <p:outputLabel value="DCALIXTO" style="font-size: 10px!important"/>
+                        </h:panelGrid>-->
+                    </p:panel>
+                </center>
+            </h:form>
+        </f:view>
+    </h:body>
+</html>
